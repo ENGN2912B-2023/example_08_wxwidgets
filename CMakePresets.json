@@ -1,0 +1,78 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "vs2022_x64",
+            "displayName": "Visual Studio 17 2022",
+            "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+            "generator": "Visual Studio 17 2022",
+            "toolset": "host=x64",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            }
+        },
+        {
+            "name": "macOS",
+            "displayName": "MacOs Xcode Clang",
+            "description": "Using compilers: C = /usr/bin/clang, CXX = /usr/bin/clang++",
+            "generator": "Xcode",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/clang",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++"
+            }
+        },
+        {
+            "name": "linux_gcc",
+            "displayName": "GNU/Linux GCC+Ninja",
+            "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "vs2022_x64-release",
+            "displayName": "Visual Studio 17 2022 - Release",
+            "configurePreset": "vs2022_x64",
+            "configuration": "Release"
+        },
+        {
+            "name": "vs2022_x64-debug",
+            "displayName": "Visual Studio 17 2022 - Debug",
+            "configurePreset": "vs2022_x64",
+            "configuration": "Debug"
+        },
+        {
+            "name": "macOS-release",
+            "displayName": "MacOs Xcode Clang - Release",
+            "configurePreset": "macOS",
+            "configuration": "Release"
+        },
+        {
+            "name": "macOS-debug",
+            "displayName": "MacOs Xcode Clang - Debug",
+            "configurePreset": "macOS",
+            "configuration": "Debug"
+        },
+        {
+            "name": "linux-release",
+            "displayName": "GNU/Linux GCC+Ninja - Release",
+            "configurePreset": "linux_gcc",
+            "configuration": "Release"
+        },
+        {
+            "name": "linux-debug",
+            "displayName": "GNU/Linux GCC+Ninja - Debug",
+            "configurePreset": "linux_gcc",
+            "configuration": "Debug"
+        }
+    ]
+}
